@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,9 +34,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0JR-id-0wU">
-                                                    <rect key="frame" x="8" y="8" width="65" height="65"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0JR-id-0wU">
+                                                    <rect key="frame" x="16" y="8" width="65" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="65" id="dCv-6f-75T"/>
+                                                        <constraint firstAttribute="width" constant="65" id="rjV-Ww-xcE"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEG-8s-iPR">
                                                     <rect key="frame" x="81" y="30" width="83" height="15"/>
@@ -84,6 +88,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="0JR-id-0wU" secondAttribute="bottom" constant="12" id="WFs-1c-jeX"/>
+                                                <constraint firstItem="0JR-id-0wU" firstAttribute="top" secondItem="8tv-3H-73P" secondAttribute="topMargin" id="aFH-Ym-EPZ"/>
+                                                <constraint firstItem="0JR-id-0wU" firstAttribute="leading" secondItem="8tv-3H-73P" secondAttribute="leadingMargin" constant="8" id="brP-og-hTc"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addressLabel" destination="zQn-A6-5yZ" id="f5U-9W-R6U"/>
