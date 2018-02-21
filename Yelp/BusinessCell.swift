@@ -2,21 +2,21 @@
 //  BusinessCell.swift
 //  Yelp
 //
-//  Created by Tavien on 2/16/18.
+//  Created by Tavien on 2/19/18.
 //  Copyright © 2018 Timothy Lee. All rights reserved.
 //
 
 import UIKit
 
 class BusinessCell: UITableViewCell {
-
+    
     @IBOutlet weak var thumbImageView: UIImageView!
+    
+    @IBOutlet weak var ratingImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var distanceLabel: UILabel!
-    
-    @IBOutlet weak var ratingImageView: UIImageView!
     
     @IBOutlet weak var reviewsCountLabel: UILabel!
     
@@ -25,25 +25,35 @@ class BusinessCell: UITableViewCell {
     @IBOutlet weak var catergoriesLabel: UILabel!
     
     var business: Business!
-    {   didSet
+    {
+        didSet
         {
-            nameLabel.text = business.name
+           nameLabel.text = business.name
             thumbImageView.setImageWith(business.imageURL!)
             catergoriesLabel.text = business.categories
             addressLabel.text = business.address
             reviewsCountLabel.text = "\(business.reviewCount!)Reviews"
             ratingImageView.setImageWith(business.ratingImageURL!)
             distanceLabel.text = business.distance
+            
+            
         }
         
     }
+
     override func awakeFromNib()
     {
         super.awakeFromNib()
         thumbImageView.layer.cornerRadius = 3
-            thumbImageView.clipsToBounds = true
+        thumbImageView.clipsToBounds = true
+        
+        nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
     }
-
+    override func layoutSubviews()
+    {
+        super.layoutSubviews()
+        nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width        
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
